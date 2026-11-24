@@ -1,0 +1,10 @@
+{{- /* Lecteur au clic : rien n'est chargé depuis YouTube ou Vimeo avant que le visiteur clique. */ -}}
+{{- $v := .v }}
+{{- $url := cond (eq $v.service "vimeo") (printf "https://vimeo.com/%s" $v.id) (printf "https://www.youtube.com/watch?v=%s" $v.id) }}
+<figure class="video">
+  <a class="video-lien" href="{{ $url }}" data-service="{{ $v.service }}" data-id="{{ $v.id }}">
+    {{- with .img }}{{ $p := .Fill "1280x720 Center" }}<img src="{{ $p.RelPermalink }}" width="1280" height="720" alt="">{{ end }}
+    <span class="video-bouton" aria-hidden="true"></span>
+    <span class="video-texte">Lire la vidéo{{ with $v.titre }} : {{ . }}{{ end }}<small>{{ cond (eq $v.service "vimeo") "Vimeo" "YouTube" }}</small></span>
+  </a>
+</figure>

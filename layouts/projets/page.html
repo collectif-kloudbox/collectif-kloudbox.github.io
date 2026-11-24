@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{- $img := .Resources.GetMatch "image.*" }}
+<main class="page fiche">
+  <header>
+    <p class="fiche-meta">{{ partial "annee.html" . }}{{ with .Params.annee }} · {{ end }}{{ delimit .Params.disciplines ", " }}</p>
+    <h1 class="titre-page">{{ .Title }}</h1>
+  </header>
+
+  {{- with .Params.videos }}
+  {{- $.Store.Set "videos" true }}
+  <div class="videos">
+    {{- range . }}
+    {{ partial "video.html" (dict "v" . "img" $img) }}
+    {{- end }}
+  </div>
+  {{- else }}
+  {{- with $img }}
+  {{- $p := .Resize "1400x" }}
+  <figure class="fiche-image"><img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt=""></figure>
+  {{- end }}
+  {{- end }}
+
+  <div class="texte">
+    {{ .Content }}
+  </div>
+
+  <nav class="fiche-suite" aria-label="Autres projets">
+    <a href="/projets/">← Tous les projets</a>
+  </nav>
+</main>
+{{ end }}

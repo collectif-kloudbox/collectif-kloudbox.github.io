@@ -1,0 +1,17 @@
+baseURL = "https://kloudbox.com/"
+languageCode = "fr-FR"
+defaultContentLanguage = "fr"
+title = "KloudBox"
+disableKinds = ["taxonomy", "term", "rss"]
+enableRobotsTXT = true
+
+[params]
+  description = "KloudBox est un collectif artistique bordelais né en 2012 : films, clips, documentaires, lotos-spectacles, expositions et expériences numériques."
+  contact = "contact@kloudbox.com"
+
+[markup.goldmark.renderer]
+  hardWraps = true   # un retour à la ligne dans le texte = un retour à la ligne sur la page
+
+[imaging]
+  quality = 78
+  resampleFilter = "Lanczos"

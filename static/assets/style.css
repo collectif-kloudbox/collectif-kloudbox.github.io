@@ -1,0 +1,203 @@
+/* KloudBox : feuille de style unique du site. */
+:root {
+  /* Couleurs du logo. Le jaune pur ne sert jamais pour du texte. */
+  --rouge: #ff0000;
+  --jaune: #ffff00;
+  --vert: #2cab2f;
+  --bleu: #00ace1;
+
+  /* Thème sombre, pour tout le monde */
+  color-scheme: dark;
+  --fond: #222222;        /* « Noir écran », le fond de l'ancien site WordPress */
+  --texte: #ecebe6;       /* 13,3:1 sur le fond */
+  --discret: #a8a7a1;     /* 6,5:1 */
+  --filet: #3a3a38;
+  --lien: #5cc9ef;        /* bleu du logo éclairci : 8,4:1 */
+
+  --largeur: 46rem;
+  --police: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+/* Thème clair, désactivé. Pour le proposer aux appareils réglés en clair, retirer les marques de commentaire.
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --fond: #fafaf7;
+    --texte: #161616;
+    --discret: #62625f;
+    --filet: #e4e3de;
+    --lien: #0a6f94;
+  }
+}
+*/
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font: 1.0625rem/1.6 var(--police);
+}
+
+a { color: var(--lien); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--lien); outline-offset: 3px; border-radius: 2px; }
+
+.page { max-width: var(--largeur); margin: 0 auto; padding: 0 1.5rem; }
+
+/* Bande des quatre couleurs, rappel du tissage du logo */
+.bande { display: flex; height: 6px; }
+.bande span { flex: 1; }
+.bande span:nth-child(1) { background: var(--rouge); }
+.bande span:nth-child(2) { background: var(--jaune); }
+.bande span:nth-child(3) { background: var(--vert); }
+.bande span:nth-child(4) { background: var(--bleu); }
+
+/* En-tête */
+.entete { padding: 4.5rem 0 3rem; }
+.entete img { width: 7.5rem; height: auto; display: block; }
+.entete h1 {
+  margin: 2rem 0 .25rem;
+  font-size: clamp(2.6rem, 8vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-weight: 800;
+}
+.entete .sous-titre {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--discret);
+}
+
+.intro { font-size: clamp(1.2rem, 2.6vw, 1.45rem); line-height: 1.5; margin: 0 0 1rem; }
+
+/* Photo d'accueil (facultative) */
+.photo { margin: 3rem 0 0; }
+.photo img { width: 100%; height: auto; display: block; }
+.photo figcaption { margin-top: .5rem; font-size: .8rem; color: var(--discret); }
+
+/* Sections */
+section { padding: 3rem 0 0; }
+h2 {
+  margin: 0 0 1.25rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--filet);
+  font-family: var(--mono);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--discret);
+}
+
+/* Repères : une ligne par projet, l'année en marge */
+.reperes { list-style: none; margin: 0; padding: 0; }
+.reperes li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: .25rem 1rem;
+  padding: .7rem 0;
+  border-bottom: 1px solid var(--filet);
+}
+.reperes .annee { font-family: var(--mono); font-size: .85rem; color: var(--discret); padding-top: .15rem; }
+.reperes .titre { font-weight: 650; }
+.reperes .detail { display: block; color: var(--discret); font-size: .95rem; }
+
+/* Membres */
+.membres { list-style: none; margin: 0; padding: 0; columns: 2 14rem; column-gap: 2rem; }
+.membres li { break-inside: avoid; padding: .35rem 0; }
+.membres a { font-weight: 600; }
+
+.contact { font-size: 1.2rem; }
+
+/* Pied de page */
+.pied {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid var(--filet);
+  font-size: .85rem;
+  color: var(--discret);
+  display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between;
+}
+.pied a { color: inherit; }
+
+/* Pages secondaires (mentions légales, 404) */
+.secondaire h1 { font-size: 2rem; letter-spacing: -.02em; margin: 3rem 0 1.5rem; }
+.secondaire h2 { margin-top: 2.5rem; }
+.retour { display: inline-flex; align-items: center; gap: .6rem; margin-top: 2.5rem; font-weight: 600; text-decoration: none; }
+.retour img { width: 2rem; height: auto; }
+
+@media (max-width: 34rem) {
+  .entete { padding-top: 3rem; }
+  .reperes li { grid-template-columns: 1fr; gap: 0; }
+}
+
+
+/* ---------- Navigation des pages intérieures ---------- */
+.nav { display: flex; align-items: center; gap: 1.5rem; padding-top: 1.25rem; padding-bottom: 1.25rem; }
+.nav a { color: var(--texte); text-decoration: none; font-weight: 600; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--lien); }
+.nav-marque { display: inline-flex; align-items: center; gap: .55rem; margin-right: auto; font-weight: 800 !important; letter-spacing: -.01em; }
+.nav-marque img { width: 1.75rem; height: auto; }
+
+.page.large { max-width: 72rem; }
+.titre-page { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -.03em; font-weight: 800; margin: 2rem 0 .5rem; }
+.chapo { color: var(--discret); margin: 0 0 1.5rem; }
+
+/* Lien « Tous les projets » de l'accueil */
+.reperes a.titre { color: var(--texte); text-decoration: none; }
+.reperes a.titre:hover { color: var(--lien); text-decoration: underline; }
+.suite { margin: 1rem 0 0; font-weight: 600; }
+
+/* ---------- Filtres ---------- */
+.filtres { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 2rem; }
+.filtres button {
+  font: inherit; font-size: .85rem; cursor: pointer;
+  padding: .35rem .8rem; border-radius: 999px;
+  background: transparent; color: var(--texte); border: 1px solid var(--filet);
+}
+.filtres button:hover { border-color: var(--discret); }
+.filtres button[aria-pressed="true"] { background: var(--texte); color: var(--fond); border-color: var(--texte); }
+
+/* ---------- Grille ---------- */
+.grille { list-style: none; margin: 0; padding: 0; display: grid; gap: 2rem 1.5rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); grid-auto-flow: dense; }
+.tuile a { display: block; color: var(--texte); text-decoration: none; }
+.tuile img, .sans-image { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #2c2c2b; }
+.sans-image { display: grid; place-items: center; }
+.sans-image img { width: 22%; aspect-ratio: 1; object-fit: contain; background: none; opacity: .55; }
+.tuile-titre { display: block; margin-top: .6rem; font-weight: 650; line-height: 1.3; }
+.tuile-meta { display: block; font-size: .85rem; color: var(--discret); margin-top: .15rem; }
+.tuile a:hover .tuile-titre { color: var(--lien); }
+.tuile a:hover img { opacity: .85; }
+@media (min-width: 48rem) {
+  .tuile--avant { grid-column: span 2; }
+  .tuile--avant .tuile-titre { font-size: 1.15rem; }
+}
+
+/* ---------- Fiche projet ---------- */
+.fiche-meta { margin: 2rem 0 0; font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--discret); }
+.fiche .titre-page { margin-top: .4rem; }
+.fiche-image { margin: 1.5rem 0 0; }
+.fiche-image img { width: 100%; height: auto; display: block; }
+.videos { display: grid; gap: 1.25rem; margin: 1.5rem 0 0; }
+.video { margin: 0; }
+.video-lien, .video iframe { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; background: #111; border: 0; color: #fff; text-decoration: none; overflow: hidden; }
+.video-lien img { width: 100%; height: 100%; object-fit: cover; opacity: .7; transition: opacity .2s; }
+.video-lien:hover img { opacity: .5; }
+.video-bouton { position: absolute; left: 50%; top: 50%; width: 4.5rem; height: 4.5rem; margin: -2.25rem 0 0 -2.25rem; border-radius: 50%; background: rgba(0,0,0,.55); border: 2px solid #fff; }
+.video-bouton::after { content: ""; position: absolute; left: 1.8rem; top: 1.35rem; border-style: solid; border-width: .9rem 0 .9rem 1.4rem; border-color: transparent transparent transparent #fff; }
+.video-texte { position: absolute; left: 1rem; bottom: .8rem; right: 1rem; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,.8); }
+.video-texte small { display: block; font-weight: 400; font-size: .75rem; opacity: .85; }
+.texte { margin-top: 2rem; }
+.texte h2 { margin-top: 2.5rem; }
+.texte h3 { margin: 2rem 0 .5rem; font-size: 1.1rem; }
+.texte p { margin: 0 0 1rem; }
+.fiche-suite { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--filet); font-weight: 600; }

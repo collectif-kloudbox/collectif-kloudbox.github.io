@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- $projets := where .RegularPages "Draft" false }}
+{{- $avec := sort (where $projets "Params.annee" "!=" nil) "Params.annee" "desc" }}
+{{- $sans := where $projets "Params.annee" "==" nil }}
+{{- $tous := $avec | append $sans }}
+{{- $disc := slice }}
+{{- range $tous }}{{ range .Params.disciplines }}{{ $disc = $disc | append . }}{{ end }}{{ end }}
+<main class="page large">
+  <h1 class="titre-page">Projets</h1>
+  <p class="chapo">{{ len $tous }} projets du collectif, du plus récent au plus ancien.</p>
+
+  <div class="filtres" role="group" aria-label="Filtrer par discipline" hidden>
+    <button type="button" aria-pressed="true" data-filtre="">Tous</button>
+    {{- range sort (uniq $disc) }}
+    <button type="button" aria-pressed="false" data-filtre="{{ . | urlize }}">{{ . }}</button>
+    {{- end }}
+  </div>
+
+  <ul class="grille">
+    {{- range $tous }}
+    {{- $img := .Resources.GetMatch "image.*" }}
+    <li class="tuile{{ if .Params.en_avant }} tuile--avant{{ end }}" data-disciplines="{{ delimit (apply .Params.disciplines "urlize" ".") " " }}">
+      <a href="{{ .RelPermalink }}">
+        {{- with $img }}
+        {{- $p := .Fill "720x450 Center" }}{{ $g := .Fill "1440x900 Center" }}
+        <img src="{{ $p.RelPermalink }}" srcset="{{ $p.RelPermalink }} 720w, {{ $g.RelPermalink }} 1440w"
+             sizes="(min-width: 60rem) 40vw, 100vw" width="720" height="450" alt="" loading="lazy">
+        {{- else }}
+        <span class="sans-image" aria-hidden="true"><img src="/assets/logo.svg" alt=""></span>
+        {{- end }}
+        <span class="tuile-titre">{{ .Title }}</span>
+        <span class="tuile-meta">{{ partial "annee.html" . }}{{ with .Params.annee }} · {{ end }}{{ delimit .Params.disciplines ", " }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</main>
+{{ end }}

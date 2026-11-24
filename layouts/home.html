@@ -1,0 +1,34 @@
+{{ define "main" }}
+<main class="page">
+  <header class="entete">
+    <img src="/assets/logo.svg" alt="" width="120" height="120">
+    <h1>KloudBox</h1>
+    <p class="sous-titre">Collectif artistique · Bordeaux · depuis 2012</p>
+  </header>
+
+  <p class="intro">
+    Depuis 2012, les membres de KloudBox ont tourné ensemble des films, des clips et des documentaires,
+    inventé des lotos-spectacles, monté des expositions et expérimenté de nouveaux outils numériques.
+  </p>
+
+  <section aria-labelledby="titre-projets">
+    <h2 id="titre-projets">Quelques projets</h2>
+    {{/* Les projets affichés ici ont « accueil: true » dans leur fiche */}}
+    <ol class="reperes">
+      {{- range sort (where site.RegularPages "Params.accueil" true) "Params.annee" "desc" }}
+      <li>
+        <span class="annee">{{ partial "annee.html" . }}</span>
+        <span><a class="titre" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{- with .Params.resume }}<span class="detail">{{ . }}</span>{{ end }}</span>
+      </li>
+      {{- end }}
+    </ol>
+    <p class="suite"><a href="/projets/">Tous les projets ({{ len (where (where site.RegularPages "Section" "projets") "Draft" false) }}) →</a></p>
+  </section>
+
+  <section aria-labelledby="titre-contact">
+    <h2 id="titre-contact">Contact</h2>
+    <p class="contact">Une idée, une proposition ? <a href="mailto:{{ site.Params.contact }}">{{ site.Params.contact }}</a></p>
+  </section>
+</main>
+{{ end }}
