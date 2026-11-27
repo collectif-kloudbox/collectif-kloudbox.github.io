@@ -2,6 +2,7 @@
 title: "DANS LA PEAU DE NABIL AZOUFI"
 annee: 2018
 disciplines: ["Courts-métrages"]
+accueil: true
 en_avant: true
 videos:
   - service: "youtube"

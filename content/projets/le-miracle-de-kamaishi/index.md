@@ -2,7 +2,7 @@
 title: "LE MIRACLE DE KAMAISHI"
 annee: 2019
 disciplines: ["Documentaires"]
-accueil: true
+
 videos:
   - service: "youtube"
     id: "KrAlpT9SVno"
