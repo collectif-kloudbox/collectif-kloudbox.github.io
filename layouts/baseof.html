@@ -16,7 +16,7 @@
   <meta property="og:description" content="{{ $desc }}">
   <meta property="og:url" content="{{ .Permalink }}">
   {{- $img := .Resources.GetMatch "image.*" }}
-  {{- with $img }}<meta property="og:image" content="{{ (.Fill "1200x630 Center").Permalink }}">
+  {{- with $img }}<meta property="og:image" content="{{ if eq .MediaType.SubType "gif" }}{{ .Permalink }}{{ else }}{{ (.Fill "1200x630 Center").Permalink }}{{ end }}">
   {{- else }}<meta property="og:image" content="{{ "assets/icon-512.png" | absURL }}">{{ end }}
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">

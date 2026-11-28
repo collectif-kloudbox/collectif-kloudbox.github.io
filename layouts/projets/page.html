@@ -15,7 +15,7 @@
   </div>
   {{- else }}
   {{- with $img }}
-  {{- $p := .Resize "1400x" }}
+  {{- $p := . }}{{ if ne .MediaType.SubType "gif" }}{{ $p = .Resize "1400x" }}{{ end }}
   <figure class="fiche-image"><img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt=""></figure>
   {{- end }}
   {{- end }}

@@ -25,9 +25,14 @@
     <li class="tuile{{ if .Params.en_avant }} tuile--avant{{ end }}" data-disciplines="{{ delimit (apply .Params.disciplines "urlize" ".") " " }}">
       <a href="{{ .RelPermalink }}">
         {{- with $img }}
+        {{- if or (eq .MediaType.SubType "gif") (and (hasPrefix .Name "vignette") (eq .MediaType.SubType "webp")) }}
+        {{- /* Image animée : affichée telle quelle (la traiter avec Hugo serait très lent) */}}
+        <img src="{{ .RelPermalink }}" width="720" height="450" alt="" loading="lazy">
+        {{- else }}
         {{- $p := .Fill (printf "720x450 %s" $cadrage) }}{{ $g := .Fill (printf "1440x900 %s" $cadrage) }}
         <img src="{{ $p.RelPermalink }}" srcset="{{ $p.RelPermalink }} 720w, {{ $g.RelPermalink }} 1440w"
              sizes="(min-width: 60rem) 40vw, 100vw" width="720" height="450" alt="" loading="lazy">
+        {{- end }}
         {{- else }}
         <span class="sans-image" aria-hidden="true"><img src="/assets/logo.svg" alt=""></span>
         {{- end }}

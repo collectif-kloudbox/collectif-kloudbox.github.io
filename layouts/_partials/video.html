@@ -3,7 +3,7 @@
 {{- $url := cond (eq $v.service "vimeo") (printf "https://vimeo.com/%s" $v.id) (printf "https://www.youtube.com/watch?v=%s" $v.id) }}
 <figure class="video">
   <a class="video-lien" href="{{ $url }}" data-service="{{ $v.service }}" data-id="{{ $v.id }}">
-    {{- with .img }}{{ $p := .Fill "1280x720 Center" }}<img src="{{ $p.RelPermalink }}" width="1280" height="720" alt="">{{ end }}
+    {{- with .img }}{{ if eq .MediaType.SubType "gif" }}<img src="{{ .RelPermalink }}" alt="">{{ else }}{{ $p := .Fill "1280x720 Center" }}<img src="{{ $p.RelPermalink }}" width="1280" height="720" alt="">{{ end }}{{ end }}
     <span class="video-bouton" aria-hidden="true"></span>
     <span class="video-texte">Lire la vidéo{{ with $v.titre }} : {{ . }}{{ end }}<small>{{ cond (eq $v.service "vimeo") "Vimeo" "YouTube" }}</small></span>
   </a>
