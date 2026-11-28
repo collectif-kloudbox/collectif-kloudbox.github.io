@@ -3,7 +3,7 @@ title: "NIGHT TOWN"
 annee: 2015
 disciplines: ["Clips"]
 accueil: true
-resume: "Clip pour réalisé Hoosky"
+resume: "Clip  réalisé pour Hoosky"
 en_avant: true
 videos:
   - service: "youtube"
