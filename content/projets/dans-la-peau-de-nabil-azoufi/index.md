@@ -3,6 +3,7 @@ title: "DANS LA PEAU DE NABIL AZOUFI"
 annee: 2018
 disciplines: ["Courts-métrages"]
 accueil: true
+resume: "Film suédé dans le cadre de la Carte Blanche du FIFIB 2018"
 en_avant: true
 videos:
   - service: "youtube"
