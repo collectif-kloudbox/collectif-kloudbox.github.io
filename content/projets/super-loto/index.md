@@ -1,6 +1,6 @@
 ---
 title: "Super Loto"
-annee: 2020
+annee: 2020   # ✏️ année du Super Loto 8000, à confirmer
 annee_debut: 2014
 disciplines: ["Scène & événements"]
 en_avant: true
@@ -36,14 +36,13 @@ videos:
   - service: "youtube"
     id: "VBJEjptrBuE"
     titre: "Super Loto 8000"
-  - service: "youtube"
-    id: "d6_OqkxNk3g"
-    titre: "Super Loto 9000"
-aliases: ["/evenement/super-loto-2000/", "/evenement/super-loto-3000/", "/evenement/super-loto-4000/", "/evenement/super-loto-5000/", "/evenement/super-loto-6000/", "/evenement/super-loto-7000/", "/evenement/super-loto-8000/", "/evenement/super-loto-9000/", "/evenement/super-tournee-2000/"]
-resume: "Lotos-spectacles animés par Philippe Maurice, du Super Loto 2000 au 9000"
+aliases: ["/evenement/super-loto-2000/", "/evenement/super-loto-3000/", "/evenement/super-loto-4000/", "/evenement/super-loto-5000/", "/evenement/super-loto-6000/", "/evenement/super-loto-7000/", "/evenement/super-loto-8000/"]
+resume: "Lotos-spectacles animés par Philippe Maurice, du Super Loto 2000 au 8000"
 ---
 
-De 2014 à 2020, KloudBox a organisé les Super Loto, des lotos-spectacles animés par Philippe Maurice, du Super Loto 2000 au Super Loto 9000, ainsi qu'une tournée, la Super Tournée 2000.
+À partir de 2014, KloudBox a organisé les Super Loto : des lotos-spectacles animés par Philippe Maurice, du Super Loto 2000 au Super Loto 8000.
+
+En 2020, en plein confinement, le Super Loto 9000 s'est joué en ligne : c'est le début du [Super Bingo de l'Internet](/projets/super-bingo-de-l-internet/). En 2021, le Super Loto a aussi pris la route avec la [Super Tournée](/projets/super-tournee/).
 
 Voici les annonces de chaque édition, telles qu'elles ont été publiées.
 
@@ -159,28 +158,3 @@ En Partenariat avec
 [ALBUM DE FAMILLE DU SUPER LOTO 8000 >](https://www.facebook.com/pg/KloudBox/photos/?tab=album&album_id=2473555839389975)
 
 [INSTAGRAM DE LA MOUSTACHE A PHILIPPE >](https://www.instagram.com/moustache_maurice/)
-
-## Super Loto 9000 (2020)
-
-*"Française, français, vous le savez, nous sommes en guerre.*\
-*En guerre contre le virus bien sûr, mais par extension,*\
-*puisque notre combat consiste pour la plus part d’entre nous à rester à la maison, nous sommes en guerre contre l’ennui.*\
-*C’est pourquoi Philippe Maurice, notre président de la boule et du carton, a pris la décision de monter au front avec sa moustache. Et d’organiser en live dans la grande salle des fêtes de l’internet, le SUPER LOTO 9000!*\
-*Ce sera le premier loto interactif au monde! Une avancée technologique incroyable que personne ne pensait possible, qui ouvrira nous le savons déjà, une nouvelle ère pour Internet.*\
-*En parallèle, Philippe Maurice, de son vrai nom Philippe Maurice, pendant ce loto gratuit, vous invitera à faire des dons pour soutenir l’Institut Pasteur, dans la recherche du vaccin qui nous libèrera tous de notre solitude, ou de notre famille selon les cas.*\
-*Vive le Loto,*\
-*Vive la République,*\
-*Et vive la France.*\
-*On vous aime**"*\
-[EVENT FACEBOOK >](https://www.facebook.com/events/372009326789877/)
-
-## Super Tournée 2000
-
-*"**Après deux ans d'absence dû à son tour des stades à l'étranger, le seul, l'unique, Philippe Maurice et le Super Loto sont de retour !*
-
-*Et cette année il sera en tournée dans toute la France pour faire chavirer vos petits coeurs.*\
-*Ne manquez pas son passage dans votre ville, et venez découvrir un spectacle hors norme au royaume de la boule et du carton !*
-
-*Des liens Hello Asso seront disponibles sur les événements Facebook pour réserver vos places. Restez connectés pour ne pas manquer leur ouverture ! (réservation obligatoire grâce à notre douce Covid-19)*
-
-*Philippe et le Collectif Kloudbox vous aiment* *"*\
