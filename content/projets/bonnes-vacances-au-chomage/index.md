@@ -15,5 +15,5 @@ Pourquoi ? Comment ? Quel avenir pour ces 130 personnes ?
 
 Réalisation :\
 Campet Julien & Staub Mathieu\
-Bientôt diffusé sur :\
-[Revue Far Ouest](https://www.revue-farouest.fr/)
+Tous les épisodes à retrouver sur :\
+[Revue Far Ouest](https://www.revue-farouest.fr/feuilletons/bonnes-vacances-au-chomage/)
