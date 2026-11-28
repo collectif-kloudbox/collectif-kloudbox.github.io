@@ -18,11 +18,14 @@
 
   <ul class="grille">
     {{- range $tous }}
-    {{- $img := .Resources.GetMatch "image.*" }}
+    {{- /* Vignette : « vignette.* » si elle existe, sinon « image.* ».
+           Cadrage : « cadrage » dans l'en-tête (Top, Bottom, Left, Right, TopLeft…), sinon recadrage automatique. */}}
+    {{- $img := or (.Resources.GetMatch "vignette.*") (.Resources.GetMatch "image.*") }}
+    {{- $cadrage := .Params.cadrage | default "Smart" }}
     <li class="tuile{{ if .Params.en_avant }} tuile--avant{{ end }}" data-disciplines="{{ delimit (apply .Params.disciplines "urlize" ".") " " }}">
       <a href="{{ .RelPermalink }}">
         {{- with $img }}
-        {{- $p := .Fill "720x450 Center" }}{{ $g := .Fill "1440x900 Center" }}
+        {{- $p := .Fill (printf "720x450 %s" $cadrage) }}{{ $g := .Fill (printf "1440x900 %s" $cadrage) }}
         <img src="{{ $p.RelPermalink }}" srcset="{{ $p.RelPermalink }} 720w, {{ $g.RelPermalink }} 1440w"
              sizes="(min-width: 60rem) 40vw, 100vw" width="720" height="450" alt="" loading="lazy">
         {{- else }}

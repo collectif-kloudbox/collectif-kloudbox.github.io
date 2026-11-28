@@ -11,6 +11,7 @@ Site du collectif KloudBox, construit avec [Hugo](https://gohugo.io) et publié 
 | Les projets affichés sur l'accueil | `accueil: true` dans la fiche du projet |
 | Une fiche projet | `content/projets/<nom>/index.md` |
 | L'image d'une fiche | `content/projets/<nom>/image.jpg` (ou `.png`) |
+| La vignette dans la grille (facultatif) | `content/projets/<nom>/vignette.jpg`, sinon l'image est recadrée |
 | Les mentions légales | `content/mentions-legales.md` |
 | Les couleurs et la mise en forme | `static/assets/style.css` |
 | Le logo et les icônes | `static/assets/`, `static/favicon.*` |
@@ -28,6 +29,7 @@ disciplines: ["Documentaires"]
 en_avant: true              # vignette deux fois plus grande dans la grille
 accueil: true               # affiché dans « Quelques projets » sur l'accueil
 resume: "Une phrase, affichée sur l'accueil et dans les partages"
+cadrage: "Top"            # facultatif : partie de l'image gardée dans la vignette
 videos:                     # YouTube ou Vimeo, chargés seulement au clic
   - service: "youtube"
     id: "KrAlpT9SVno"
@@ -37,6 +39,11 @@ draft: true                 # facultatif : la fiche existe mais n'est pas publi�
 
 Le texte de la fiche, en Markdown. Un retour à la ligne dans le texte = un retour à la ligne sur la page.
 ```
+
+Vignettes de la grille (format 16:10) :
+- par défaut, Hugo recadre l'image automatiquement sur sa zone la plus intéressante ;
+- si le résultat ne convient pas, indique la partie à garder avec `cadrage` : `Top`, `Bottom`, `Left`, `Right`, `TopLeft`, `TopRight`, `BottomLeft`, `BottomRight` ou `Center` ;
+- ou dépose une `vignette.jpg` dans le dossier de la fiche : elle remplace l'image dans la grille, et la page projet garde `image.jpg`.
 
 Disciplines utilisées : Clips, Courts-métrages, Documentaires, Pub & photo, Scène & événements, Expositions, Édition, Numérique.
 Les filtres de la page Projets se construisent tout seuls à partir de ces valeurs.
